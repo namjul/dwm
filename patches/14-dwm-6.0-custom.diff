@@ -1,0 +1,34 @@
+diff --git a/dwm.c b/dwm.c
+index 398097e..b690b93 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -888,14 +888,18 @@ drawbar(Monitor *m) {
+ 			urg |= c->tags;
+ 	}
+ 	dc.x = 0;
++  XSetForeground(dpy, dc.gc, dc.colors[0][ColBG]);
++  XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, sw, bh);
+ 	for(i = 0; i < LENGTH(tags); i++) {
+ 		dc.w = TEXTW(tags[i].name);
+-		col = dc.colors[ (m->tagset[m->seltags] & 1 << i) ? 1 : (urg & 1 << i ? 2:(occ & 1 << i ? 3:0)) ];
++		col = dc.colors[ (m->tagset[m->seltags] & 1 << i) ? 1 : (urg & 1 << i ? 2:(occ & 1 << i ? 3:11)) ];
+ 		drawtext(tags[i].name, col, True);
++    XSetForeground(dpy, dc.gc, col[ColBorder]);
++    XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.h - taglinepx, dc.w, taglinepx);
+ 		dc.x += dc.w;
+ 	}
+ 	dc.w = blw = TEXTW(m->ltsymbol);
+-	drawtext(m->ltsymbol, dc.colors[0], True);
++	drawtext(m->ltsymbol, dc.colors[5], True);
+ 	dc.x += dc.w;
+ 	x = dc.x;
+   dc.w = textnw(stext, strlen(stext)); // no padding
+@@ -1906,7 +1910,7 @@ setup(void) {
+ 	initfont(font);
+ 	sw = DisplayWidth(dpy, screen);
+ 	sh = DisplayHeight(dpy, screen);
+-	bh = dc.h = dc.font.height + 2;
++	bh = dc.h = dc.font.height + 8;
+ 	updategeom();
+ 	/* init atoms */
+ 	wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);

@@ -1,0 +1,46 @@
+diff --git a/dwm.c b/dwm.c
+index af68e74..4a59a41 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -884,19 +884,15 @@ drawbar(Monitor *m) {
+ 	drawtext(m->ltsymbol, dc.colors[0], True);
+ 	dc.x += dc.w;
+ 	x = dc.x;
+-	if(m == selmon) { /* status is only drawn on selected monitor */
+-		dc.w = textnw(stext, strlen(stext));
+-		dc.x = m->ww - dc.w;
+-		if(showsystray && m == selmon)
++  dc.w = textnw(stext, strlen(stext)); // no padding
++  dc.x = m->ww - dc.w;
++	if(showsystray && m == selmon)
+ 			dc.x -= getsystraywidth();
+-		if(dc.x < x) {
+-			dc.x = x;
+-			dc.w = m->ww - x;
+-		}
+-		drawcoloredtext(stext);
+-	}
+-	else
+-		dc.x = m->ww;
++	if(dc.x < x) {
++		dc.x = x;
++		dc.w = m->ww - x;
++ }
++ drawcoloredtext(stext);
+ 	if((dc.w = dc.x - x) > bh) {
+ 		dc.x = x;
+ 		if(m->sel) {
+@@ -2292,9 +2288,12 @@ updatetitle(Client *c) {
+ 
+ void
+ updatestatus(void) {
++	Monitor *m;
++
+ 	if(!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
+ 		strcpy(stext, "dwm-"VERSION);
+-	drawbar(selmon);
++  for(m = mons; m; m = m->next)
++    drawbar(m);
+ }
+ 
+ void
