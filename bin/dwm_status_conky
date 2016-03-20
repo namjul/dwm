@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-conky -c ~/.dwm/conkyrc | while read LINE; do xsetroot -name "$LINE"; sleep 60; done
+conky -c ~/.dwm/conkyrc | while read LINE; do xsetroot -name "$LINE"; sleep 1; done

@@ -1,9 +1,9 @@
 out_to_console yes
 out_to_x no
 background no
-update_interval 60
+update_interval 1
 total_run_times 0
 use_spacer none
 
 TEXT
-${time %H:%M %a %d %b}
+${execi 1 amixer -c 0 get Master | grep Mono: | cut -d " " -f6} ${time %H:%M %a %d %b} 
