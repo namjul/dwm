@@ -63,6 +63,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 #include "push.c"
 #include "selfrestart.c"
+#include "shifttags.c"
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,6 +106,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
   { MODKEY|ControlMask,           XK_j,      pushdown,       {0} },
   { MODKEY|ControlMask,           XK_k,      pushup,         {0} },
+  { MODKEY,                       XK_Left,   shifttags,      {.i = -1 } },
+  { MODKEY,                       XK_Right,  shifttags,      {.i = +1 } },
 };
 
 /* button definitions */
