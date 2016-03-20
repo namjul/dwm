@@ -30,7 +30,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx = 8;            /* gaps between windows */
 
 /* tagging */
-static const char *tags[] = { "web", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "web", "code", "term", "misc", "media" };
 
 static const Rule rules[] = {
 	/* xprop(1):
