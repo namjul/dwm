@@ -69,6 +69,7 @@ static const char *termcmd[]  = { "st", NULL };
 #include "push.c"
 #include "selfrestart.c"
 #include "shifttags.c"
+#include "zoomswap.c"
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
