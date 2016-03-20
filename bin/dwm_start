@@ -15,7 +15,7 @@ xset +fp /home/nam/.fonts
 xset fp rehash
 
 # start statusbar
-dwm_status_simple &
+dwm_status_conky &
 
 # start dwm
 while true; do
