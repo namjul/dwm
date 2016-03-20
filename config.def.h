@@ -4,9 +4,9 @@
 static const char *fonts[] = {
 	"monospace:size=10"
 };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[] = "monospace:size=10";
 
-#define NUMCOLORS         4
+#define NUMCOLORS 4
 static const char colors[NUMCOLORS][MAXCOLORS][8] = {
   // border   foreground background
   { "#000033", "#dddddd", "#000033" },  // normal
@@ -38,8 +38,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     iscentered     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,             1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,             0,           -1 },
+  { "Firefox",  NULL,        NULL,       1 << 0,       0,             0,           -1 },
 };
 
 /* layout(s) */
@@ -70,6 +69,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-lh", "30", "-fn", dmenufont, "-nb", colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf", colors[1][1], NULL };
 static const char *termcmd[] = { "dwm_terminal", NULL };
 static const char *lockcmd[] = { "dwm_lock", NULL };
+static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
 
 static const char *upvol[]   = { "amixer", "set", "Master", "3+",     NULL };
 static const char *downvol[] = { "amixer", "set", "Master", "3-",     NULL };
@@ -85,6 +85,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
   { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd } },
+  { MODKEY|ShiftMask,             XK_w,      runorraise,     {.v = browser } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
