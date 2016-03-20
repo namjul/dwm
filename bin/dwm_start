@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# map caps lock to escape
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
+
+# set background-color
+dwm_background &
+
+# set keyboard speed
+xset r rate 200 30
+
+# fonts
+xset +fp /home/nam/.fonts
+xset fp rehash
+
+# start statusbar
+dwm_status_simple &
+
+# start dwm
+while true; do
+  # Log stderror to a file
+  #dwm 2> ~/.dwm.log
+  dwm > ~/.dwm.log 2>&1
+  # No error logging
+  #dwm >/dev/null 2>&1
+done
