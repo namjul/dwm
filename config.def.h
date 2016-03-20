@@ -68,6 +68,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[] = { "dwm_terminal", NULL };
 static const char *lockcmd[] = { "dwm_lock", NULL };
 
+static const char *upvol[]   = { "amixer", "set", "Master", "3+",     NULL };
+static const char *downvol[] = { "amixer", "set", "Master", "3-",     NULL };
+static const char *mutevol[] = { "amixer", "-D", "pulse", "set", "Master", "toggle", NULL };
+
 #include "push.c"
 #include "selfrestart.c"
 #include "shifttags.c"
@@ -117,6 +121,9 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_k,      pushup,         {0} },
   { MODKEY,                       XK_Left,   shifttags,      {.i = -1 } },
   { MODKEY,                       XK_Right,  shifttags,      {.i = +1 } },
+	{ MODKEY,                       XK_F12,    spawn,          {.v = upvol   } },
+	{ MODKEY,                       XK_F11,    spawn,          {.v = downvol } },
+	{ MODKEY,                       XK_F9,     spawn,          {.v = mutevol } },
 };
 
 /* button definitions */
