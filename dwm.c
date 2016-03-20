@@ -503,12 +503,12 @@ buttonpress(XEvent *e)
 	if (ev->window == selmon->barwin) {
 		i = x = 0;
 		do
-			x += TEXTW(tags[i]);
+			x += TEXTW(tags[i]) + tagpadding;
 		while (ev->x >= x && ++i < LENGTH(tags));
 		if (i < LENGTH(tags)) {
 			click = ClkTagBar;
 			arg.ui = 1 << i;
-		} else if (ev->x < x + blw)
+		} else if (ev->x < x + blw + tagpadding)
 			click = ClkLtSymbol;
 		else if (ev->x > selmon->ww - TEXTW(stext))
 			click = ClkStatusText;
@@ -866,7 +866,7 @@ drawbar(Monitor *m)
 	}
 	x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
-		w = TEXTW(tags[i]);
+		w = TEXTW(tags[i]) + tagpadding;
 		drw_setscheme(drw, &scheme[(m->tagset[m->seltags] & 1 << i) ? 1 : (urg & 1 << i ? 2 : 0)]);
 		drw_text(drw, x, 0, w, bh, tags[i], 0);
 
@@ -874,7 +874,7 @@ drawbar(Monitor *m)
 		         occ & 1 << i, 0);
 		x += w;
 	}
-	w = blw = TEXTW(m->ltsymbol);
+	w = blw = TEXTW(m->ltsymbol) + tagpadding;
 	drw_setscheme(drw, &scheme[0]);
 	drw_text(drw, x, 0, w, bh, m->ltsymbol, 0);
 	x += w;
@@ -1877,7 +1877,7 @@ setup(void)
 	drw_load_fonts(drw, fonts, LENGTH(fonts));
 	if (!drw->fontcount)
 		die("no fonts could be loaded.\n");
-	bh = drw->fonts[0]->h + 2;
+	bh = drw->fonts[0]->h + 2 + barheight;
 	updategeom();
 	/* init atoms */
 	wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);

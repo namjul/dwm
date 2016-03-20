@@ -16,6 +16,9 @@ static const char colors[NUMCOLORS][MAXCOLORS][8] = {
   // add more here
 };
 
+
+static const unsigned int barheight = 10;       /* height of bar */
+static const unsigned int tagpadding = 10;      /* inner padding of tags */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -27,7 +30,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx = 8;            /* gaps between windows */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "web", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
