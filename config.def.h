@@ -70,6 +70,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-lh", "30", "-fn
 static const char *termcmd[] = { "dwm_terminal", NULL };
 static const char *lockcmd[] = { "dwm_lock", NULL };
 static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
+static const char *screenshot[] = { "dwm_screenshot", NULL};
 
 static const char *upvol[]   = { "amixer", "set", "Master", "3+",     NULL };
 static const char *downvol[] = { "amixer", "set", "Master", "3-",     NULL };
@@ -128,6 +129,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F12,    spawn,          {.v = upvol   } },
 	{ MODKEY,                       XK_F11,    spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_F9,     spawn,          {.v = mutevol } },
+  { 0,                            XK_Print,  spawn,          {.v = screenshot } },
 };
 
 /* button definitions */
