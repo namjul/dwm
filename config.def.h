@@ -9,8 +9,8 @@ static const char dmenufont[] = "monospace:size=10";
 #define NUMCOLORS 4
 static const char colors[NUMCOLORS][MAXCOLORS][8] = {
   // border   foreground background
-  { "#000033", "#dddddd", "#000033" },  // normal
-  { "#000088", "#ffffff", "#000088" },  // selected
+  { "#002B36", "#93A1A1", "#002B36" },  // normal
+  { "#2AA198", "#ffffff", "#2AA198" },  // selected
   { "#ff0000", "#000000", "#ffff00" },  // urgent/warning  (black on yellow)
   { "#ff0000", "#ffffff", "#ff0000" },  // error (white on red)
   // add more here
@@ -19,7 +19,7 @@ static const char colors[NUMCOLORS][MAXCOLORS][8] = {
 
 static const unsigned int barheight = 10;       /* height of bar */
 static const unsigned int tagpadding = 10;      /* inner padding of tags */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -66,7 +66,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-lh", "30", "-fn", dmenufont, "-nb", colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf", colors[1][1], NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-lh", "29", "-fn", dmenufont, "-nb", colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf", colors[1][1], NULL };
 static const char *termcmd[] = { "dwm_terminal", NULL };
 static const char *lockcmd[] = { "dwm_lock", NULL };
 static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
