@@ -9,8 +9,8 @@ static const char dmenufont[] = "monospace:size=10";
 #define NUMCOLORS 4
 static const char colors[NUMCOLORS][MAXCOLORS][8] = {
   // border   foreground background
-  { "#002B36", "#93A1A1", "#002B36" },  // normal
-  { "#2AA198", "#ffffff", "#2AA198" },  // selected
+  { "#1d1f21", "#93A1A1", "#1d1f21" },  // normal
+  { "#8abeb7", "#ffffff", "#8abeb7" },  // selected
   { "#ff0000", "#000000", "#ffff00" },  // urgent/warning  (black on yellow)
   { "#ff0000", "#ffffff", "#ff0000" },  // error (white on red)
   // add more here
@@ -30,7 +30,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx = 8;            /* gaps between windows */
 
 /* tagging */
-static const char *tags[] = { "web", "code", "term", "misc", "media" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
