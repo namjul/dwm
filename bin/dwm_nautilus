@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+nautilus --no-desktop --new-window
