@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+eval $(killall ssh-agent; ssh-agent)
+eval $(killall gpg-agent; gpg-agent --daemon)
+
 # map caps lock to escape
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
