@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
 
-scrot MyScreenshot.png
+if which shutter
+then
+  shutter
+else
+  scrot MyScreenshot.png
+fi
