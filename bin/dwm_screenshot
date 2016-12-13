@@ -2,7 +2,7 @@
 
 if which shutter
 then
-  shutter
+  shutter -s
 else
   scrot MyScreenshot.png
 fi
