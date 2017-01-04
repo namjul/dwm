@@ -4,7 +4,6 @@
 static const char *fonts[] = {
 	"monospace:size=10"
 };
-static const char dmenufont[] = "monospace:size=10";
 
 #define NUMCOLORS 4
 static const char colors[NUMCOLORS][MAXCOLORS][8] = {
@@ -65,8 +64,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-lh", "29", "-fn", dmenufont, "-nb", colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf", colors[1][1], NULL };
+static const char *roficmd[] = { "rofi", "-show", "run", "-lines", "3", "-eh", "2", "-fullscreen", "-padding", "500", "-opacity", "85", "-bw", "0", "-bc", colors[0][2], "-bg", colors[0][2], "-fg", colors[0][1], "-hlbg", colors[1][2], "-hlfg", colors[1][1], NULL };
 static const char *termcmd[] = { "dwm_terminal", NULL };
 static const char *lockcmd[] = { "dwm_lock", NULL };
 static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
@@ -83,7 +81,7 @@ static const char *mutevol[] = { "amixer", "-D", "pulse", "set", "Master", "togg
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
   { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd } },
   { MODKEY|ShiftMask,             XK_w,      runorraise,     {.v = browser } },
