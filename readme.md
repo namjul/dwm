@@ -31,3 +31,8 @@ Add ~/.dwm/bin to your PATH:
 ## Add the Desktop Entry Specification
 
 `sudo ln -s ~/.dwm/dwm.desktop /usr/share/xsessions/dwm.desktop`
+
+## Nautilus without a desktop
+
+
+`gsettings set org.gnome.desktop.background show-desktop-icons false`
