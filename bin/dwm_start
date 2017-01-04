@@ -17,6 +17,9 @@ xset r rate 200 30
 xset +fp /home/nam/.fonts
 xset fp rehash
 
+# start dropbox
+dropbox start
+
 # start statusbar
 dwm_status_conky &
 
