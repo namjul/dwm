@@ -19,7 +19,7 @@ sudo make clean install
 
 ## Install Helper Programs
 
-`sudo apt install feh conky i3lock`
+`sudo apt install feh conky i3lock rofi`
 
 
 ## Add dwm Executables to your PATH
